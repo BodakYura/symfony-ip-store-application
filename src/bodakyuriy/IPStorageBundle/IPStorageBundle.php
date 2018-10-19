@@ -3,6 +3,7 @@
 namespace bodakyuriy\IPStorageBundle;
 
 use bodakyuriy\IPStorageBundle\DependencyInjection\Compiler\DriverCompilerPass;
+use bodakyuriy\IPStorageBundle\DependencyInjection\Compiler\ValidatorCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -20,5 +21,6 @@ class IPStorageBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new DriverCompilerPass());
+        $container->addCompilerPass(new ValidatorCompilerPass());
     }
 }

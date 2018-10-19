@@ -19,8 +19,14 @@ services:
 
     bodakyuriy\IPStorageBundle\DriverChain: ~
 
+    bodakyuriy\IPStorageBundle\ValidatorChain: ~
+
     bodakyuriy\IPStorageBundle\Driver\DoctrineDriver\Driver:
         tags:
             -  { name: 'ip_storage.driver', alias: 'doctrine' }
+
+    bodakyuriy\IPStorageBundle\Validator\Validator:
+        tags:
+            -  { name: 'ip_storage.validator', alias: 'default' }
 
     bodakyuriy\IPStorageBundle\Entity\IPStorage: ~

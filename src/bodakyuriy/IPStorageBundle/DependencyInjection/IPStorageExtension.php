@@ -30,7 +30,9 @@ class IPStorageExtension extends Extension
         $definition = $container->getDefinition(Driver::class);
         $definition->setBindings(['$tableName' => $config['table_name']]);
 
+
         $definition = $container->getDefinition(IPStorageService::class);
-        $definition->setBindings(['$storageDriver' => $config['driver']]);
+        $definition->setBindings(['$storageDriver' => $config['driver'], '$validator' => $config['validator']]);
+
     }
 }

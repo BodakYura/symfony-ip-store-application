@@ -10,6 +10,7 @@ parameters:
 
 ip_storage:
     driver: 'doctrine'
+    validator: 'default'
     table_name: 'ip_storage'
 
 framework:

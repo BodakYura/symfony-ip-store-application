@@ -23,8 +23,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
             ->scalarNode('driver')->end()
+            ->scalarNode('validator')->end()
             ->scalarNode('table_name')->end() // twitter
-
         ;
 
         return $treeBuilder;

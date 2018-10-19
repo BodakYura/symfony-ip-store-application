@@ -53,7 +53,6 @@ class IPFormType extends AbstractType
                 'csrf_protection' => true,
                 'csrf_token_id'   => 'ip_form_token',
                 'required' => false,
-
             ]
         );
     }

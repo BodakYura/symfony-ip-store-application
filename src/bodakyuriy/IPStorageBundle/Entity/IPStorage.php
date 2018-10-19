@@ -17,7 +17,7 @@ class IPStorage
      */
     protected $id;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=39)
      */
     protected $ip;
     /**
