@@ -1,0 +1,11 @@
+ip_storage_index:
+    path:     /ip-storage
+    defaults: { _controller: IPStorageBundle:IPStorage:index }
+
+ip_storage_add:
+    path:     /ip-storage/add
+    defaults: { _controller: IPStorageBundle:IPStorage:add }
+
+ip_storage_query:
+    path:     /ip-storage/query
+    defaults: { _controller: IPStorageBundle:IPStorage:query }

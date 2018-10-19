@@ -1,0 +1,26 @@
+# src/Acme/MailerBundle/Resources/config/services.yml
+parameters:
+    ip_storage.driver_chain.class: bodakyuriy\IPStorageBundle\DriverChain
+
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: trues
+        public: false
+
+    bodakyuriy\IPStorageBundle\Controller\:
+        resource: '../../Controller'
+        tags:
+            - { name: controller.service_arguments }
+
+    bodakyuriy\IPStorageBundle\Service\:
+        resource: '../../Service/*'
+
+    bodakyuriy\IPStorageBundle\DriverChain: ~
+
+    bodakyuriy\IPStorageBundle\Driver\DoctrineDriver\Driver:
+        tags:
+            -  { name: 'ip_storage.driver', alias: 'doctrine' }
+
+    bodakyuriy\IPStorageBundle\Entity\IPStorage: ~

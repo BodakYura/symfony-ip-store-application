@@ -1,0 +1,3 @@
+ip_storage:
+    driver: 'doctrine'
+    table_name: 'ip_store'

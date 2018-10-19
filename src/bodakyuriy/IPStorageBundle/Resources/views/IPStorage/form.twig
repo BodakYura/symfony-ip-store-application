@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div><a href="{{ path('ip_storage_index') }}"><- Return</a></div>
+    {{ form_start(form, {attr: {class: 'ip-form'} }) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    {% if result is not null and result.count is defined %}
+        <div style="margin-top: 20px">This IP address was added {{ result.count }} times</div>
+    {% elseif result is not null and result.errors is defined %}
+        {% for error in result.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
