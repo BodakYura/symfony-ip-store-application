@@ -70,6 +70,12 @@ class IPStorageService
      */
     public function getCount(string $ip): array
     {
+        $errors = $this->validator->validate($ip);
+
+        if(count($errors) > 0){
+            return ['errors' => $errors];
+        }
+
         $result = $this->driver->getCount($ip);
 
         return ['count' => $result];

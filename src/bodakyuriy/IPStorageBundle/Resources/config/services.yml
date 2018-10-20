@@ -16,16 +16,19 @@ services:
 
     bodakyuriy\IPStorageBundle\Service\:
         resource: '../../Service/*'
+        public: true
 
     bodakyuriy\IPStorageBundle\DriverChain: ~
 
     bodakyuriy\IPStorageBundle\ValidatorChain: ~
 
     bodakyuriy\IPStorageBundle\Driver\DoctrineDriver\Driver:
+        public: true
         tags:
             -  { name: 'ip_storage.driver', alias: 'doctrine' }
 
     bodakyuriy\IPStorageBundle\Validator\Validator:
+        public: true
         tags:
             -  { name: 'ip_storage.validator', alias: 'default' }
 
