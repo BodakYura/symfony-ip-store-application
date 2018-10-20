@@ -5,7 +5,7 @@ namespace bodakyuriy\IPStorageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="NULL")
+ * @ORM\Table(name="NULL", indexes={@ORM\Index(name="ips_idx", columns={"ip"})})
  * @ORM\Entity
  */
 class IPStorage

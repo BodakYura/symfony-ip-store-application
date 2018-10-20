@@ -2,8 +2,6 @@
 
 namespace Tests\Validator;
 
-
-use bodakyuriy\IPStorageBundle\Driver\DoctrineDriver\Driver;
 use bodakyuriy\IPStorageBundle\Validator\Validator;
 use PHPUnit\Framework\Constraint\IsType;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
