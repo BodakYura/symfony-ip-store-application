@@ -51,13 +51,11 @@ class Driver implements StorageDriverInterface
 
     /**
      * @param string $ip
-     * @return int
+     * @return bool
      * @throws \Doctrine\DBAL\ConnectionException
      */
     public function save(string $ip): bool
     {
-        $result = null;
-
         $this->entityManager->getConnection()->beginTransaction();
 
         try {

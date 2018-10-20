@@ -55,13 +55,16 @@ class IPStorageService
     {
         $errors = $this->validator->validate($ip);
 
-        if(count($errors) > 0){
-            return ['errors' => $errors];
+        switch (true) {
+            case count($errors) > 0:
+                return ['errors' => $errors];
+                break;
+            case $this->driver->save($ip):
+                return ['count' => $this->driver->getCount($ip)];
+                break;
+            default:
+                return ['errors' => ['Something went wrong']];
         }
-
-        $this->driver->save($ip);
-
-        return ['count' => $this->driver->getCount($ip)];
     }
 
     /**
@@ -72,7 +75,7 @@ class IPStorageService
     {
         $errors = $this->validator->validate($ip);
 
-        if(count($errors) > 0){
+        if (count($errors) > 0) {
             return ['errors' => $errors];
         }
 
