@@ -3,10 +3,13 @@
 namespace bodakyuriy\IPStorageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Table(name="NULL", indexes={@ORM\Index(name="ips_idx", columns={"ip"})})
  * @ORM\Entity
+ * @UniqueEntity("ip")
  */
 class IPStorage
 {
@@ -17,7 +20,7 @@ class IPStorage
      */
     protected $id;
     /**
-     * @ORM\Column(type="string", length=39)
+     * @ORM\Column(type="string", length=39, unique=true)
      */
     protected $ip;
     /**

@@ -23,7 +23,7 @@ class IPStorageServiceTest extends KernelTestCase
     {
         $result = $this->driver->save('143.124.63.12');
 
-        $this->assertInternalType(IsType::TYPE_INT, $result);
+        $this->assertInternalType(IsType::TYPE_BOOL, $result);
     }
 
 

@@ -59,9 +59,9 @@ class IPStorageService
             return ['errors' => $errors];
         }
 
-        $result = $this->driver->save($ip);
+        $this->driver->save($ip);
 
-        return ['count' => $result];
+        return ['count' => $this->driver->getCount($ip)];
     }
 
     /**

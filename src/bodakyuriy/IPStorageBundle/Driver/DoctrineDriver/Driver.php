@@ -54,20 +54,18 @@ class Driver implements StorageDriverInterface
      * @return int
      * @throws \Doctrine\DBAL\ConnectionException
      */
-    public function save(string $ip): int
+    public function save(string $ip): bool
     {
-        $existsIP = $this->entityManager->getRepository(IPStorage::class)->findOneBy(['ip' => $ip]);
+        $result = null;
 
-        if ($existsIP) {
-            return $this->updateCount($existsIP);
-        }
-
-        $this->entityManager->getConnection()->beginTransaction(); // auto-commit произойдет автоматически
+        $this->entityManager->getConnection()->beginTransaction();
 
         try {
-            $this->IPStorageEntity->setIp($ip);
-            $this->entityManager->persist($this->IPStorageEntity);
-            $this->entityManager->flush();
+            $sql = "INSERT INTO $this->tableName SET ip = :ip ON DUPLICATE KEY UPDATE count = count + 1";
+            $statement = $this->entityManager->getConnection()->prepare($sql);
+            $statement->bindParam(':ip', $ip);
+            $result = $statement->execute();
+
             $this->entityManager->getConnection()->commit();
         } catch (\Exception $ex) {
             $this->entityManager->getConnection()->rollback();
@@ -76,31 +74,7 @@ class Driver implements StorageDriverInterface
             throw $ex;
         }
 
-        return $this->IPStorageEntity->getCount();
-    }
-
-    /**
-     * @param IPStorage $ip
-     * @return int
-     * @throws \Doctrine\DBAL\ConnectionException
-     */
-    private function updateCount(IPStorage $ip)
-    {
-        $this->entityManager->getConnection()->beginTransaction(); // auto-commit произойдет автоматически
-
-        try {
-            $ip->setCount($ip->getCount() + 1);
-            $this->entityManager->persist($ip);
-            $this->entityManager->flush();
-            $this->entityManager->getConnection()->commit();
-        } catch (\Exception $ex) {
-            $this->entityManager->getConnection()->rollback();
-            $this->entityManager->close();
-
-            throw $ex;
-        }
-
-        return $ip->getCount();
+        return $result;
     }
 
     /**
