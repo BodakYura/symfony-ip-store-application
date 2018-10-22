@@ -7,8 +7,8 @@ A Symfony project created on October 15, 2018, 10:37 am.
 
 ``` bash
 $ git clone https://github.com/BodakYura/symfony-ip-store-application.git
-$ composer install
 $ cd symfony-ip-store-application
+$ composer install
 $ php bin/console server:run
 $ Open link http://127.0.0.1:8000 in browser
 ```
@@ -45,7 +45,7 @@ class CustomStorageDriver implements StorageDriverInterface
 Register as service with tag **ip_storage.driver**: 
 
 ``` bash
-	YourBundle\Driver\CustomDriver:
+YourBundle\Driver\CustomDriver:
         tags:
             -  { name: 'ip_storage.driver', alias: 'customDriver' }
 ```
@@ -53,7 +53,7 @@ Register as service with tag **ip_storage.driver**:
 Change driver in config:
 
 ``` bash
-	ip_storage:
+ip_storage:
       driver: 'customDriver'
       validator: 'default'
       table_name: 'ip_storage'
@@ -77,7 +77,7 @@ class CustomValidator implements ValidatorInterface
 Register as service with tag **ip_storage.validator**: 
 
 ``` bash
-	YourBundle\Driver\CustomDriver:
+YourBundle\Driver\CustomDriver:
         tags:
             -  { name: 'ip_storage.driver', alias: 'customValidator' }
 ```
@@ -85,7 +85,7 @@ Register as service with tag **ip_storage.validator**:
 Change validator in config:
 
 ``` bash
-	ip_storage:
+ip_storage:
       driver: 'doctrine'
       validator: 'customValidator'
       table_name: 'ip_storage'
