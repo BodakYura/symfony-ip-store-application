@@ -2,7 +2,7 @@
 
 namespace bodakyuriy\IPStorageBundle;
 
-use bodakyuriy\IPStorageBundle\Contracts\StorageDriverInterface;
+use bodakyuriy\IPStorageBundle\Driver\Contract\StorageDriverInterface;
 
 /**
  * Class DriverChain

@@ -3,13 +3,10 @@
 namespace bodakyuriy\IPStorageBundle\Driver\DoctrineDriver;
 
 use bodakyuriy\IPStorageBundle\Entity\IPStorage;
-use Doctrine\DBAL\LockMode;
+use bodakyuriy\IPStorageBundle\Driver\Contract\StorageDriverInterface;
 use Doctrine\ORM\EntityManager;
-use bodakyuriy\IPStorageBundle\Contracts\StorageDriverInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\PessimisticLockException;
 
 /**
  * Class Driver
@@ -49,11 +46,7 @@ class Driver implements StorageDriverInterface
         $this->createTable($tableName, $metadata);
     }
 
-    /**
-     * @param string $ip
-     * @return bool
-     * @throws \Doctrine\DBAL\ConnectionException
-     */
+
     public function save(string $ip): bool
     {
         $this->entityManager->getConnection()->beginTransaction();

@@ -3,7 +3,7 @@
 namespace bodakyuriy\IPStorageBundle\Controller;
 
 use bodakyuriy\IPStorageBundle\Form\IPFormType;
-use bodakyuriy\IPStorageBundle\Service\IPStorageService;
+use bodakyuriy\IPStorageBundle\Service\Contract\IPStorageServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,10 +23,10 @@ class IPStorageController extends Controller
 
     /**
      * @param Request $request
-     * @param IPStorageService $IPStorageService
+     * @param IPStorageServiceInterface $IPStorageService
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addAction(Request $request, IPStorageService $IPStorageService)
+    public function addAction(Request $request, IPStorageServiceInterface $IPStorageService)
     {
         $result = null;
         $form = $this->createForm(IPFormType::class, null, [
@@ -47,10 +47,10 @@ class IPStorageController extends Controller
 
     /**
      * @param Request $request
-     * @param IPStorageService $IPStorageService
+     * @param IPStorageServiceInterface $IPStorageService
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function queryAction(Request $request, IPStorageService $IPStorageService)
+    public function queryAction(Request $request, IPStorageServiceInterface $IPStorageService)
     {
         $result = null;
         $form = $this->createForm(IPFormType::class, null, [

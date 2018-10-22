@@ -2,7 +2,6 @@
 
 namespace Tests\Driver\DoctrineDriver;
 
-
 use bodakyuriy\IPStorageBundle\Driver\DoctrineDriver\Driver;
 use PHPUnit\Framework\Constraint\IsType;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

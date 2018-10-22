@@ -1,6 +1,6 @@
 <?php
 
-namespace bodakyuriy\IPStorageBundle\Contracts;
+namespace bodakyuriy\IPStorageBundle\Driver\Contract;
 
 
 /**

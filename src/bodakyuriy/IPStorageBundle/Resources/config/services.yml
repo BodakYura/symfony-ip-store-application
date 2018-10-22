@@ -14,9 +14,10 @@ services:
         tags:
             - { name: controller.service_arguments }
 
-    bodakyuriy\IPStorageBundle\Service\:
-        resource: '../../Service/*'
+    bodakyuriy\IPStorageBundle\Service\IPStorageService:
         public: true
+
+    bodakyuriy\IPStorageBundle\Service\Contract\IPStorageServiceInterface: '@bodakyuriy\IPStorageBundle\Service\IPStorageService'
 
     bodakyuriy\IPStorageBundle\DriverChain: ~
 

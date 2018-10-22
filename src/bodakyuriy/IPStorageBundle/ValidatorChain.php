@@ -2,7 +2,7 @@
 
 namespace bodakyuriy\IPStorageBundle;
 
-use bodakyuriy\IPStorageBundle\Contracts\ValidatorInterface;
+use bodakyuriy\IPStorageBundle\Validator\Contract\ValidatorInterface;
 
 /**
  * Class ValidatorChain

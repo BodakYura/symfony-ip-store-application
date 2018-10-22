@@ -3,13 +3,14 @@
 namespace bodakyuriy\IPStorageBundle\Service;
 
 use bodakyuriy\IPStorageBundle\DriverChain;
+use bodakyuriy\IPStorageBundle\Service\Contract\IPStorageServiceInterface;
 use bodakyuriy\IPStorageBundle\ValidatorChain;
 
 /**
  * Class IPStorageService
  * @package bodakyuriy\IPStorageBundle\Service
  */
-class IPStorageService
+class IPStorageService implements IPStorageServiceInterface
 {
     /**
      * @var DriverChain
