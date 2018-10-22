@@ -24,7 +24,7 @@ ip_storage:
 
 ## Documentation
 
-#### Create custom StorageDriver
+### Create custom StorageDriver
 
 Create custom storage driver which implements **StorageDriverInterface**:
 
@@ -58,7 +58,7 @@ ip_storage:
       validator: 'default'
       table_name: 'ip_storage'
 ```
-#### Create custom Validator
+### Create custom Validator
 
 Create custom validator driver which implements **ValidatorInterface**:
 
