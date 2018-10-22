@@ -22,6 +22,8 @@ ip_storage:
     table_name: 'ip_storage'
 ```
 
+**Link http://localhost:8000/ip-storage**
+
 ## Documentation
 
 ### Create custom StorageDriver
